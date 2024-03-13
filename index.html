@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+				<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+				<link rel="stylesheet" href="/storage/emulated/0/my website /75 hard/cal/cal.css">
+				<style>
+				</style>
+<script>
+var arr=[];
+function more() {
+				var box= document.getElementsByClassName("dis");
+				
+				var m=0;
+				if( m==0){
+								console.log("true");
+								
+								for( i=0; i<=3; i++){
+												box[i].style.display= "block";
+												m=1;
+								}
+				}
+				else{
+												console.log("false");
+												for( i=0; i<=3; i++){
+																box[i].style.display= "none";
+																m=0;
+												}
+				}
+				
+		
+};
+function input(data){
+    var dis=document.getElementById("dis");
+    dis.value+= data;
+    arr.push(data);
+}
+function result(){
+				var dis=document.getElementById("dis");
+				var result=eval(dis.value);
+				dis.value= result;
+}
+function myclear(){
+    var dis=document.getElementById("dis");
+    dis.value= " ";
+}
+function ereas() {
+    var dis = document.getElementById("dis");
+    var inputValue = dis.value;
+    if (inputValue.length > 0) {
+    				dis.value = inputValue.slice(0, -1);
+    }
+}
+function odd(){
+				var dis = document.getElementById("dis");
+				var inputValue = dis.value;
+				var x= inputValue%2;
+				console.log(x);
+				if(inputValue % 2 ==0){
+								}
+				else{
+								console.log("odd");
+				}
+}
+</script>
+				<title>calculator</title>
+</head>
+<body>
+				<div id="cont">
+								<div id="cal"><h1>calculeter</h1>
+												<input id="dis"type="text" placeholder="calculat..." readonly=true\>
+												<div class="keys" class="orange">
+																<button class="orange" onclick="myclear()">c</button>
+																<button class="orange" onclick="ereas()">e</button>
+																<button class="orange" onclick="input('%')">%</button>
+																<button class="orange" onclick="input('/')">/</button>
+												</div>
+												<div class="keys">
+																<button onclick="input(4)">4</button>
+																<button onclick="input(5)">5</button>
+																<button onclick="input(6)">6</button>
+																<button onclick="input('-')" class="orange">-</button>
+												</div>
+												<div class="keys">
+																<button onclick="input(1)">1</button>
+																<button onclick="input(2)">2</button>
+																<button onclick="input(3)">3</button>
+																<button onclick="input('+')" class="orange">+</button>
+												</div>
+												<div class="keys">
+																<button id="m" onclick="more()">m</button>
+																<button onclick="input(0)">0</button>
+																<button onclick="input('.')">.</button>
+																<button class="orange" onclick="result()" >=</button>
+												</div>
+												<div class="keys" id="felx">
+																<button id="n" class="dis" onclick="more()">even<br>odd</button>
+																<button class="dis" onclick="input(0)">prime<br>num.</button>
+																<button class="dis"onclick="input('.')">palin<br>drome</button>
+																<button class="dis"onclick="result()" >arm<br>strong</button>
+												</div>
+								</div>
+				</div>
+</body>
+</html>
