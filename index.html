@@ -53,28 +53,22 @@
 				</style>
 <script>
 var arr=[];
-function more() {
-				var box= document.getElementsByClassName("dis");
-				
-				var m=0;
-				if( m==0){
-								console.log("true");
-								
+var box= document.getElementsByClassName("dis");
+				var m = 	box[0].style.display;
+				if( m=="none"){
 								for( i=0; i<=3; i++){
 												box[i].style.display= "block";
-												m=1;
 								}
 				}
 				else{
-												console.log("false");
-												for( i=0; i<=3; i++){
+								for( i=0; i<=3; i++){
 																box[i].style.display= "none";
-																m=0;
 												}
 				}
 				
 		
 };
+//number btn
 function input(data){
     var dis=document.getElementById("dis");
     dis.value+= data;
@@ -96,16 +90,94 @@ function ereas() {
     				dis.value = inputValue.slice(0, -1);
     }
 }
+//addtional funtion 
+
+
+//odd even
 function odd(){
 				var dis = document.getElementById("dis");
 				var inputValue = dis.value;
 				var x= inputValue%2;
-				console.log(x);
-				if(inputValue % 2 ==0){
+				if(x==0){
+				    dis.value+="(even)";
 								}
 				else{
-								console.log("odd");
+								dis.value+="(odd)";
 				}
+}
+//prime num
+function prime(){
+    var dis = document.getElementById("dis");
+    var number= dis.value ;
+    let isPrime = true;
+// check if number is equal to 1
+    if (number === 1) {
+        console.log("1 is neither prime nor composite number.");
+    }
+// check if number is greater than 1
+    else if (number > 1) {
+    // looping through 2 to number-1
+        for (let i = 2; i < number; i++) {
+            if (number % i == 0) {
+                console.log(i)
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+        console.log(`${number} is a prime number`);
+            
+        }
+        else {
+            console.log(`${number} is a not prime number`);
+        }
+    }
+// check if number is less than 1
+    else {
+        console.log("The number is not a prime number.");
+    }
+}
+
+//pelindrom num
+
+function palin(){
+    var dis = document.getElementById("dis");
+    var number = dis.value;
+let rev = 0;
+var temp = number;
+
+while (number !== 0) {
+    rev = rev * 10 + number % 10;
+    number = Math.floor(number / 10);
+}
+
+if (temp == rev) {
+    dis.value += " -palindrome";
+} else {
+    dis.value += " -not a palindrome";
+    console.log(rev);
+}
+    
+}
+function checkArmstrong() {
+    var dis = document.getElementById("dis");
+    var number = dis.value;
+    var numDigits = number.toString().length;
+    var sum = 0;
+    var temp = number;
+
+    while (temp > 0) {
+        var digit = temp % 10;
+        sum += Math.pow(digit, numDigits);
+        temp = Math.floor(temp / 10);
+    }
+
+    if (number == sum) {
+        dis.value += " -Armstrong";
+    } else {
+        dis.value += " -not an Armstrong";
+        console.log(sum);
+    }
 }
 </script>
 				<title>calculator</title>
@@ -145,10 +217,10 @@ function odd(){
 																<button class="orange" onclick="result()" >=</button>
 												</div>
 												<div class="keys" id="felx">
-																<button id="n" class="dis" onclick="more()">even<br>odd</button>
-																<button class="dis" onclick="input(0)">prime<br>num.</button>
-																<button class="dis"onclick="input('.')">palin<br>drome</button>
-																<button class="dis"onclick="result()" >arm<br>strong</button>
+																<button class="dis" onclick="odd()">even<br>odd</button>
+																<button class="dis" onclick="prime()">prime<br>num.</button>
+																<button class="dis" onclick="palin()">palin<br>drome</button>
+																<button class="dis" onclick="checkArmstrong()" >arm<br>strong</button>
 												</div>
 								</div>
 				</div>
