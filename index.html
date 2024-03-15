@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 
 <html>
 <head>
 				<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-				<link rel="stylesheet" href="cal.css">
 				<style>
-    *{
+				*{
 								margin: 0vh;
 								padding: 0vh;
 				}
@@ -50,10 +49,10 @@
 .orange{
   color: orange;
 }
-				</style>
-<script>
+</style>
+<script >
 function more(){
-     var box= document.getElementsByClassName("dis");
+				var box= document.getElementsByClassName("dis");
 				var m = 	box[0].style.display;
 				if( m=="none"){
 								for( i=0; i<=3; i++){
@@ -74,15 +73,18 @@ function input(data){
     dis.value+= data;
     arr.push(data);
 }
+// = equle to btn
 function result(){
 				var dis=document.getElementById("dis");
 				var result=eval(dis.value);
 				dis.value= result;
 }
+//clear btn
 function myclear(){
     var dis=document.getElementById("dis");
     dis.value= " ";
 }
+//ereas btn
 function ereas() {
     var dis = document.getElementById("dis");
     var inputValue = dis.value;
@@ -192,7 +194,7 @@ function checkArmstrong() {
 																<button class="orange" onclick="input('%')">%</button>
 																<button class="orange" onclick="input('/')">/</button>
 												</div>
-<div class="keys">
+												<div class="keys">
 																<button onclick="input(7)">7</button>
 																<button onclick="input(8)">8</button>
 																<button onclick="input(9)">9</button>
